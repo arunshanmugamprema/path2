@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="A sample Channel Diagnostic findings brief from Path 2 Consulting. Illustrative company and figures, showing exactly what a client receives." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>Sample Findings Brief | Path 2 Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --navy: #102744;
+        --teal: #079E9B;
+        --teal-dark: #067F7D;
+        --teal-bright: #2EC4C0;
+        --amber: #F2A21B;
+        --graphite: #87919A;
+        --bg: #F7F9FA;
+        --bg-white: #ffffff;
+        --surface: #ffffff;
+        --surface-2: #EEF2F4;
+        --ink: #102744;
+        --ink-soft: #3E546E;
+        --line: #D6DDE2;
+        --accent: #079E9B;
+        --accent-dark: #067F7D;
+        --accent-soft: #E3F2F2;
+        --amber-soft: #FBF0DA;
+        --footer-bg: #102744;
+        --footer-ink: #EAF0F5;
+        --shadow: 0 1px 2px rgba(16, 39, 68, 0.06), 0 10px 30px rgba(16, 39, 68, 0.08);
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0A1A2F;
+          --bg-white: #0A1A2F;
+          --surface: #122840;
+          --surface-2: #1A3553;
+          --ink: #EDF2F7;
+          --ink-soft: #B9C6D3;
+          --line: #2B435F;
+          --accent: #1ABAB6;
+          --accent-dark: #079E9B;
+          --accent-soft: #143A44;
+          --amber-soft: #3A2E14;
+          --footer-bg: #08182D;
+          --footer-ink: #EAF0F5;
+          --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; background: var(--bg); color: var(--ink);
+        font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 17px; line-height: 1.6; -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3 {
+        font-family: "Newsreader", Georgia, "Times New Roman", serif;
+        font-weight: 600; line-height: 1.15; margin: 0; letter-spacing: -0.01em; color: var(--ink);
+      }
+      p { margin: 0; }
+      a { color: var(--accent); }
+      a:hover { color: var(--accent-dark); }
+      @media (prefers-color-scheme: dark) { a:hover { color: var(--teal-bright); } }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+      .narrow { max-width: 820px; margin: 0 auto; }
+
+      .topbar { border-bottom: 1px solid var(--line); background: var(--bg-white); }
+      @media (prefers-color-scheme: dark) { .topbar { background: var(--surface); } }
+      .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap; }
+      .brand { display: inline-flex; align-items: center; text-decoration: none; }
+      .brand-logo { height: 56px; width: auto; max-width: 80vw; display: block; }
+      .topbar a.back-link { font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+
+      main { padding: 44px 0 8px; }
+      .eyebrow { font-weight: 700; font-size: 0.82rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 12px; }
+      @media (prefers-color-scheme: dark) { .eyebrow { color: var(--teal-bright); } }
+      h1 { font-size: 2.35rem; margin-bottom: 14px; }
+      .lede { font-size: 1.13rem; color: var(--ink-soft); max-width: 640px; }
+
+      .sample-note {
+        margin-top: 24px; background: var(--amber-soft);
+        border: 1px solid var(--amber); border-radius: 12px;
+        padding: 16px 18px; font-size: 0.97rem;
+      }
+      .sample-note strong { color: var(--ink); }
+
+      section.report { margin-top: 40px; }
+      section.report > h2 { font-size: 1.65rem; margin-bottom: 12px; }
+      section.report > p { color: var(--ink-soft); max-width: 680px; }
+      section.report > p + p { margin-top: 10px; }
+
+      table { width: 100%; border-collapse: collapse; margin-top: 16px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+      th, td { text-align: left; padding: 12px 16px; font-size: 0.97rem; vertical-align: top; }
+      th { background: var(--surface-2); font-weight: 700; color: var(--ink); border-bottom: 1px solid var(--line); }
+      td { border-bottom: 1px solid var(--line); color: var(--ink-soft); }
+      td:first-child { color: var(--ink); font-weight: 600; white-space: nowrap; }
+      tr:last-child td { border-bottom: none; }
+
+      .score-cell { white-space: nowrap; }
+      .dots { letter-spacing: 3px; color: var(--teal); font-size: 0.9rem; }
+      .dots .off { color: var(--line); }
+      .score-num { font-weight: 700; color: var(--ink); margin-left: 6px; }
+
+      .part { margin-top: 26px; }
+      .part h3 { font-size: 1.25rem; margin-bottom: 8px; }
+      .part p { color: var(--ink-soft); max-width: 680px; }
+      .part p + p { margin-top: 8px; }
+
+      .leak {
+        background: var(--surface); border: 1px solid var(--line); border-radius: 16px;
+        box-shadow: var(--shadow); padding: 24px 26px; margin-top: 18px;
+      }
+      .leak-rank { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 6px; }
+      @media (prefers-color-scheme: dark) { .leak-rank { color: var(--teal-bright); } }
+      .leak h3 { font-size: 1.3rem; margin-bottom: 10px; }
+      .leak p { color: var(--ink-soft); }
+      .leak p + p { margin-top: 8px; }
+      .leak p strong { color: var(--ink); }
+
+      .close-card {
+        margin-top: 40px; background: var(--surface); border: 1px solid var(--line);
+        border-radius: 16px; box-shadow: var(--shadow); padding: 28px;
+      }
+      .close-card h2 { font-size: 1.5rem; margin-bottom: 10px; }
+      .close-card p { color: var(--ink-soft); max-width: 620px; }
+      .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px; }
+      .btn { display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem; padding: 13px 22px; border-radius: 12px; min-height: 50px; }
+      .btn-primary { background: var(--teal); color: #ffffff; }
+      .btn-primary:hover { background: var(--teal-dark); color: #ffffff; }
+      .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); background: var(--surface); }
+      .btn-ghost:hover { border-color: var(--accent); color: var(--ink); }
+
+      footer { padding: 0; margin-top: 56px; background: var(--footer-bg); color: var(--footer-ink); }
+      .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 10px 22px; flex-wrap: wrap; padding-top: 22px; padding-bottom: 22px; font-size: 0.9rem; color: var(--footer-ink); }
+      .footer-inner a { padding: 6px 0; display: inline-block; min-height: 32px; color: var(--teal-bright); text-decoration: none; }
+      .footer-inner a:hover { color: #ffffff; text-decoration: underline; }
+      .footer-inner strong { color: #ffffff; font-weight: 700; }
+
+      @media print {
+        .topbar a.back-link, .cta-row { display: none; }
+        body { background: #ffffff; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a class="brand" href="index.html" aria-label="Path 2 Consulting home">
+          <img class="brand-logo" src="lockup.svg" alt="Path 2 Consulting. Find the Problem. Find the Path." />
+        </a>
+        <a class="back-link" href="index.html">Back to Path 2 Consulting</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap narrow">
+        <p class="eyebrow">The Channel Diagnostic</p>
+        <h1>Sample findings brief</h1>
+        <p class="lede">This is the document a Channel Diagnostic ends with. Short, plain, and built to be acted on. It has the same four parts as every brief I write.</p>
+
+        <div class="sample-note">
+          <strong>Please read first:</strong> this is an illustrative sample. The company, the people, and every figure below are invented to show the shape and depth of a real brief. They are not a real client, and they are not real results. In a live engagement, every number here comes from the client's own data, under a signed confidentiality agreement.
+        </div>
+
+        <section class="report">
+          <h2>The company, as given</h2>
+          <table>
+            <tr><th style="width: 34%;">Profile</th><th>Detail</th></tr>
+            <tr><td>Business</td><td>Manufacturer of plumbing and HVAC supplies, sold through distributors</td></tr>
+            <tr><td>Revenue</td><td>$68M a year through the distributor channel</td></tr>
+            <tr><td>Channel</td><td>132 distributors, 5 regions, roughly 9,800 retail accounts</td></tr>
+            <tr><td>Data reviewed</td><td>24 months of sales by distributor, 12 months of forecast history, one full year of incentive payouts</td></tr>
+            <tr><td>The owner's question</td><td>"Sales are flat and margin keeps slipping. I cannot tell which distributors are actually earning their keep."</td></tr>
+          </table>
+        </section>
+
+        <section class="report">
+          <h2>The scorecard</h2>
+          <p>Six dimensions, scored 1 to 5 against the evidence in the data provided. A low score is not an insult. It is a pointer to where the money is.</p>
+          <table>
+            <tr><th style="width: 24%;">Dimension</th><th style="width: 18%;">Score</th><th>Evidence</th></tr>
+            <tr>
+              <td>Distributor ROI</td>
+              <td class="score-cell"><span class="dots">●●<span class="off">●●●</span></span><span class="score-num">2</span></td>
+              <td>Profit after incentives and freight is calculated for 31 of 132 distributors. The other 101 are ranked on shipments alone.</td>
+            </tr>
+            <tr>
+              <td>Forecast accuracy</td>
+              <td class="score-cell"><span class="dots">●●<span class="off">●●●</span></span><span class="score-num">2</span></td>
+              <td>Monthly forecast error averaged 21% over the last year. Two regions land within 8%. Three miss by 25% or more, in both directions.</td>
+            </tr>
+            <tr>
+              <td>Incentive efficiency</td>
+              <td class="score-cell"><span class="dots">●<span class="off">●●●●</span></span><span class="score-num">1</span></td>
+              <td>78% of incentive spend went to the top 12 distributors. Payouts are calculated on shipments in. Sell-through is not part of the calculation.</td>
+            </tr>
+            <tr>
+              <td>Stock availability</td>
+              <td class="score-cell"><span class="dots">●●<span class="off">●●●</span></span><span class="score-num">2</span></td>
+              <td>11 of the 40 fastest-moving products stocked out at distributor level at least once a quarter. The same products carry excess stock two regions away.</td>
+            </tr>
+            <tr>
+              <td>Retailer participation</td>
+              <td class="score-cell"><span class="dots">●●<span class="off">●●●</span></span><span class="score-num">2</span></td>
+              <td>17% of active retailers earned any incentive last year. The rate has been flat for three years, so the program is a discount for a few, not a driver for the many.</td>
+            </tr>
+            <tr>
+              <td>Reporting and visibility</td>
+              <td class="score-cell"><span class="dots">●●●<span class="off">●●</span></span><span class="score-num">3</span></td>
+              <td>Monthly sales reporting by distributor is consistent and on time. Margin, returns, and inventory sit in separate reports that nobody joins up.</td>
+            </tr>
+          </table>
+        </section>
+
+        <section class="report">
+          <h2>The brief, in four parts</h2>
+
+          <div class="part">
+            <h3>1. What is visible</h3>
+            <p>Shipments by distributor, monthly, for 24 months, and they are clean. The owner can see who buys, how much, and in which months. The top 12 distributors account for 54% of channel revenue, and the ranking has barely moved in two years.</p>
+          </div>
+
+          <div class="part">
+            <h3>2. What is missing</h3>
+            <p>Profit per distributor for 101 of the 132. Sell-through at retail, which is collected by nobody. Inventory ageing at distributor level. Without those three, every channel decision is being made on the one number that flatters the channel most: shipments in.</p>
+          </div>
+
+          <div class="part">
+            <h3>3. Where spend and sales line up</h3>
+            <p>They mostly do not. Incentive money follows shipments, so it concentrates on the largest distributors whether or not their retailers sell the product through. An estimated $610K of last year's $1.9M incentive spend went to distributors whose sell-through fell year over year. The program is paying for loading, not for selling.</p>
+          </div>
+
+          <div class="part">
+            <h3>4. Three fixes, ranked</h3>
+            <p>The three changes most likely to pay back first, in order. Each one names what I found, what it costs, and the fix.</p>
+          </div>
+
+          <div class="leak">
+            <p class="leak-rank">Fix 1 · Pays back first</p>
+            <h3>Pay for sell-through, not just sell-in</h3>
+            <p><strong>What I found:</strong> incentives are earned on shipments into the distributor, with no second condition. Distributors can earn in full while their retailers' sales fall.</p>
+            <p><strong>What it costs:</strong> roughly $610K a year paid against declining sell-through, on the sample year's figures, plus the margin given up in the discount itself.</p>
+            <p><strong>The fix:</strong> an incentive redesign with two triggers. A base earning on sell-in, and the larger share earned only when sell-through grows. Pilot it with 20 distributors for one quarter before rolling it out.</p>
+          </div>
+
+          <div class="leak">
+            <p class="leak-rank">Fix 2</p>
+            <h3>Put the forecast on a discipline</h3>
+            <p><strong>What I found:</strong> a 21% average forecast error, swinging both ways. The same error produces excess stock in two regions and stock-outs in three, on the same products, in the same months.</p>
+            <p><strong>What it costs:</strong> an estimated $340K a year in carrying cost on the excess, before counting the sales lost on the 11 fast movers that keep running out.</p>
+            <p><strong>The fix:</strong> forecast discipline. One monthly forecast per distributor for the top products, the error published next to it every month, and a short review that asks only one question: why did we miss?</p>
+          </div>
+
+          <div class="leak">
+            <p class="leak-rank">Fix 3</p>
+            <h3>Measure every distributor on profit, then act on the tail</h3>
+            <p><strong>What I found:</strong> 101 distributors have never had a profit figure attached to them. On the sample data, the bottom 40 by shipments contribute about 2% of gross margin while taking roughly 18% of field support time.</p>
+            <p><strong>What it costs:</strong> field time and support cost spent where the return is thinnest, while the distributors in the middle, the ones with room to grow, get what is left.</p>
+            <p><strong>The fix:</strong> a distributor ROI view for all 132: revenue, incentive cost, freight, returns, and support time in one place. Segment the channel into grow, fix, and exit conversations, in that order. Fix before exit, always.</p>
+          </div>
+        </section>
+
+        <section class="report">
+          <h2>The first 90 days</h2>
+          <table>
+            <tr><th style="width: 18%;">When</th><th style="width: 41%;">What changes</th><th>What the owner should see</th></tr>
+            <tr>
+              <td>Days 1 to 30</td>
+              <td>Build the distributor profit view for all 132. Start publishing forecast error monthly, by distributor.</td>
+              <td>The first honest ranking of the channel: who earns, who costs, who is unknown.</td>
+            </tr>
+            <tr>
+              <td>Days 31 to 60</td>
+              <td>Pilot the two-trigger incentive with 20 distributors. Set availability targets for the 11 problem products.</td>
+              <td>Participation and sell-through moving in the pilot group, and stock-outs starting to fall.</td>
+            </tr>
+            <tr>
+              <td>Days 61 to 90</td>
+              <td>Decide the rollout on pilot evidence. Open the first fix conversations with the tail, using their own numbers.</td>
+              <td>A forecast error trend pointing down, and a channel conversation based on profit, not volume.</td>
+            </tr>
+          </table>
+        </section>
+
+        <div class="close-card">
+          <h2>You can act on the brief without me</h2>
+          <p>That is deliberate. A real brief is yours to use with your own team. If you would rather have help with the fixes, that is a second conversation, and it starts only if the findings earn it.</p>
+          <p style="margin-top: 10px;">A live diagnostic needs three things you already have: sales by distributor, your forecast history, and what you paid out in incentives. A spreadsheet export is enough, and I sign a confidentiality agreement before I see any of it.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="mailto:arun@getpath2.com?subject=Channel%20Diagnostic%20conversation">Book a 20 minute conversation</a>
+            <a class="btn btn-ghost" href="health-check.html">Take the free Channel Health Check</a>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <span><strong>Path 2 Consulting</strong> · Arun S. Prema · Pittsburgh, PA</span>
+        <span>
+          <a href="mailto:arun@getpath2.com">arun@getpath2.com</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.linkedin.com/in/path2consulting" target="_blank" rel="noopener">LinkedIn</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
