@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="The Channel Health Check by Path 2 Consulting: eight questions, two minutes, a straight score for the distributor channel you already have." />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <title>Channel Health Check | Path 2 Consulting</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Archivo:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --navy: #102744;
+        --teal: #079E9B;
+        --teal-dark: #067F7D;
+        --teal-bright: #2EC4C0;
+        --amber: #F2A21B;
+        --graphite: #87919A;
+        --bg: #F7F9FA;
+        --bg-white: #ffffff;
+        --surface: #ffffff;
+        --surface-2: #EEF2F4;
+        --ink: #102744;
+        --ink-soft: #3E546E;
+        --line: #D6DDE2;
+        --accent: #079E9B;
+        --accent-dark: #067F7D;
+        --accent-ink: #ffffff;
+        --accent-soft: #E3F2F2;
+        --bar-track: #E2E8EC;
+        --footer-bg: #102744;
+        --footer-ink: #EAF0F5;
+        --shadow: 0 1px 2px rgba(16, 39, 68, 0.06), 0 10px 30px rgba(16, 39, 68, 0.08);
+        color-scheme: light;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #0A1A2F;
+          --bg-white: #0A1A2F;
+          --surface: #122840;
+          --surface-2: #1A3553;
+          --ink: #EDF2F7;
+          --ink-soft: #B9C6D3;
+          --line: #2B435F;
+          --accent: #1ABAB6;
+          --accent-dark: #079E9B;
+          --accent-soft: #143A44;
+          --bar-track: #223A55;
+          --footer-bg: #08182D;
+          --footer-ink: #EAF0F5;
+          --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.35);
+          color-scheme: dark;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1, h2, h3 {
+        font-family: "Newsreader", Georgia, "Times New Roman", serif;
+        font-weight: 600;
+        line-height: 1.15;
+        margin: 0;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+      p { margin: 0; }
+      a { color: var(--accent); }
+      a:hover { color: var(--accent-dark); }
+      @media (prefers-color-scheme: dark) {
+        a:hover { color: var(--teal-bright); }
+      }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+
+      .topbar { border-bottom: 1px solid var(--line); background: var(--bg-white); }
+      @media (prefers-color-scheme: dark) { .topbar { background: var(--surface); } }
+      .topbar-inner {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px; padding-top: 12px; padding-bottom: 12px; flex-wrap: wrap;
+      }
+      .brand { display: inline-flex; align-items: center; text-decoration: none; }
+      .brand-logo { height: 56px; width: auto; max-width: 80vw; display: block; }
+      .topbar a.back-link { font-weight: 600; text-decoration: none; font-size: 0.95rem; }
+
+      main { padding: 44px 0 8px; }
+      .narrow { max-width: 760px; margin: 0 auto; }
+      .eyebrow {
+        font-weight: 700; font-size: 0.82rem; letter-spacing: 0.14em;
+        text-transform: uppercase; color: var(--accent-dark); margin-bottom: 12px;
+      }
+      @media (prefers-color-scheme: dark) { .eyebrow { color: var(--teal-bright); } }
+      h1 { font-size: 2.35rem; margin-bottom: 14px; }
+      .lede { font-size: 1.13rem; color: var(--ink-soft); max-width: 620px; }
+      .proof { margin-top: 14px; font-size: 0.95rem; color: var(--ink-soft); }
+      .privacy { margin-top: 8px; font-size: 0.9rem; color: var(--graphite); }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        box-shadow: var(--shadow);
+        padding: 30px 30px 26px;
+        margin-top: 30px;
+      }
+      .progress-row {
+        display: flex; justify-content: space-between; align-items: baseline;
+        font-size: 0.88rem; font-weight: 600; color: var(--ink-soft); margin-bottom: 10px;
+      }
+      .progress-track { height: 8px; border-radius: 99px; background: var(--bar-track); overflow: hidden; margin-bottom: 26px; }
+      .progress-fill { height: 100%; width: 0%; background: var(--teal); border-radius: 99px; transition: width 0.35s ease; }
+      .q-area { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 8px; }
+      @media (prefers-color-scheme: dark) { .q-area { color: var(--teal-bright); } }
+      .q-text { font-family: "Newsreader", Georgia, serif; font-size: 1.5rem; font-weight: 600; line-height: 1.25; margin-bottom: 22px; }
+      .answers { display: grid; gap: 10px; }
+      .answer-btn {
+        appearance: none; text-align: left; width: 100%;
+        font: inherit; font-size: 1rem; line-height: 1.45;
+        background: var(--surface); color: var(--ink);
+        border: 1.5px solid var(--line); border-radius: 12px;
+        padding: 14px 16px; cursor: pointer; min-height: 52px;
+        transition: border-color 0.15s ease, background 0.15s ease;
+      }
+      .answer-btn:hover { border-color: var(--accent); background: var(--accent-soft); }
+      .answer-btn.selected { border-color: var(--accent); background: var(--accent-soft); font-weight: 600; }
+      .quiz-nav { margin-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+      .back-btn {
+        appearance: none; background: none; border: none; font: inherit;
+        font-size: 0.92rem; font-weight: 600; color: var(--ink-soft);
+        cursor: pointer; padding: 8px 4px; visibility: hidden;
+      }
+      .back-btn:hover { color: var(--ink); }
+
+      .score-big { font-family: "Newsreader", Georgia, serif; font-size: 4.2rem; font-weight: 700; line-height: 1; }
+      .score-big small { font-size: 1.4rem; color: var(--graphite); font-weight: 500; }
+      .band { font-size: 1.45rem; font-weight: 700; margin: 10px 0 12px; color: var(--navy); }
+      @media (prefers-color-scheme: dark) { .band { color: var(--ink); } }
+      .band-text { color: var(--ink-soft); max-width: 600px; }
+      .leaks { margin-top: 24px; }
+      .leaks h3 { font-size: 1.15rem; margin-bottom: 10px; }
+      .leak-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+      .leak-list li {
+        background: var(--surface-2); border-radius: 10px; padding: 10px 14px;
+        font-size: 0.97rem;
+      }
+      .leak-list li strong { color: var(--ink); }
+      .bridge { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); color: var(--ink-soft); max-width: 600px; }
+      .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+      .btn {
+        display: inline-block; text-decoration: none; font-weight: 700; font-size: 1rem;
+        padding: 13px 22px; border-radius: 12px; min-height: 50px;
+      }
+      .btn-primary { background: var(--teal); color: #ffffff; }
+      .btn-primary:hover { background: var(--teal-dark); color: #ffffff; }
+      .btn-ghost { border: 1.5px solid var(--line); color: var(--ink); background: var(--surface); }
+      .btn-ghost:hover { border-color: var(--accent); color: var(--ink); }
+      .restart { margin-top: 18px; font-size: 0.92rem; }
+      .hidden { display: none; }
+
+      footer { padding: 0; margin-top: 56px; background: var(--footer-bg); color: var(--footer-ink); }
+      .footer-inner {
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 10px 22px; flex-wrap: wrap; padding-top: 22px; padding-bottom: 22px;
+        font-size: 0.9rem; color: var(--footer-ink);
+      }
+      .footer-inner a { padding: 6px 0; display: inline-block; min-height: 32px; color: var(--teal-bright); text-decoration: none; }
+      .footer-inner a:hover { color: #ffffff; text-decoration: underline; }
+      .footer-inner strong { color: #ffffff; font-weight: 700; }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a class="brand" href="index.html" aria-label="Path 2 Consulting home">
+          <img class="brand-logo" src="lockup.svg" alt="Path 2 Consulting. Find the Problem. Find the Path." />
+        </a>
+        <a class="back-link" href="index.html">Back to Path 2 Consulting</a>
+      </div>
+    </header>
+
+    <main>
+      <div class="wrap narrow">
+        <p class="eyebrow">Path 2 Consulting</p>
+        <h1>The Channel Health Check</h1>
+        <p class="lede">Eight questions. Two minutes. A straight score for the distributor channel you already have, and a clear read on where it is leaking.</p>
+        <p class="proof">Built from 12 years running a $100M distributor channel: 200+ distributors, 40,000+ retail accounts, 15 regions.</p>
+        <p class="privacy">Your answers stay in your browser. Nothing is collected or sent anywhere unless you choose to send your result at the end.</p>
+
+        <section class="card" id="quiz-card" aria-live="polite">
+          <div class="progress-row">
+            <span id="progress-label">Question 1 of 8</span>
+            <span id="progress-pct">0%</span>
+          </div>
+          <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+          <p class="q-area" id="q-area"></p>
+          <p class="q-text" id="q-text"></p>
+          <div class="answers" id="answers"></div>
+          <div class="quiz-nav">
+            <button class="back-btn" id="back-btn" type="button">Back</button>
+            <span></span>
+          </div>
+        </section>
+
+        <section class="card hidden" id="result-card">
+          <p class="q-area">Your channel score</p>
+          <p class="score-big"><span id="score-num">0</span><small> / 24</small></p>
+          <p class="band" id="band-title"></p>
+          <p class="band-text" id="band-text"></p>
+
+          <div class="leaks" id="leaks-wrap">
+            <h3>Where your channel is leaking</h3>
+            <ul class="leak-list" id="leak-list"></ul>
+          </div>
+
+          <p class="bridge">The Channel Diagnostic is this check done with your real numbers: 2 to 3 weeks, a written findings brief, and a straight answer on what to fix first. You can act on the brief with or without me.</p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" id="book-btn" href="mailto:arun@getpath2.com?subject=Channel%20Diagnostic%20conversation">Book a 20 minute conversation</a>
+            <a class="btn btn-ghost" id="send-btn" href="#">Send my answers to Arun</a>
+          </div>
+          <p class="restart"><a href="#" id="restart-link">Start again</a></p>
+          <p class="privacy">Sending your answers is optional and entirely your choice. It opens an email in your own mail app, addressed to arun@getpath2.com.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap footer-inner">
+        <span><strong>Path 2 Consulting</strong> · Arun S. Prema · Pittsburgh, PA</span>
+        <span>
+          <a href="mailto:arun@getpath2.com">arun@getpath2.com</a>
+          &nbsp;·&nbsp;
+          <a href="https://www.linkedin.com/in/path2consulting" target="_blank" rel="noopener">LinkedIn</a>
+        </span>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var QUESTIONS = [
+          {
+            area: "Forecast accuracy",
+            q: "When your team commits to a monthly sales number, how close does the month usually land?",
+            leak: "Forecast accuracy: the monthly number is a guess, so production, stock, and cash all plan against fiction.",
+            answers: [
+              { t: "Within about 5% most months", s: 3 },
+              { t: "Within about 10%", s: 2 },
+              { t: "Off by 15% or more, regularly", s: 1 },
+              { t: "We do not really forecast by distributor or territory", s: 0 }
+            ]
+          },
+          {
+            area: "Distributor ROI",
+            q: "Do you know which distributors actually make you money, after incentives, freight, and support costs?",
+            leak: "Distributor ROI: profit per distributor is unmeasured, so weak accounts get fed like strong ones.",
+            answers: [
+              { t: "Yes, reviewed distributor by distributor", s: 3 },
+              { t: "A rough idea for the large ones", s: 2 },
+              { t: "We track sales volume, not profit per distributor", s: 1 },
+              { t: "No, we have never measured it", s: 0 }
+            ]
+          },
+          {
+            area: "Incentive design",
+            q: "Your distributor incentive program pays out mainly for what?",
+            leak: "Incentive design: the program pays for volume alone, so it buys the wrong behavior.",
+            answers: [
+              { t: "Growth and product mix targets we set together", s: 3 },
+              { t: "Volume, with some conditions attached", s: 2 },
+              { t: "Volume alone", s: 1 },
+              { t: "We do not run a structured incentive program", s: 0 }
+            ]
+          },
+          {
+            area: "Incentive participation",
+            q: "What share of your distributors actively earn incentives?",
+            leak: "Incentive participation: most distributors never earn, so the program motivates only the few who need it least.",
+            answers: [
+              { t: "More than half of them", s: 3 },
+              { t: "A third to a half", s: 2 },
+              { t: "Mostly the same few top distributors", s: 1 },
+              { t: "We do not track participation", s: 0 }
+            ]
+          },
+          {
+            area: "Stock availability",
+            q: "How often do fast-moving products go out of stock at distributor level?",
+            leak: "Stock availability: fast movers run out, and the lost sales never appear on any report.",
+            answers: [
+              { t: "Rarely, and we see it coming", s: 3 },
+              { t: "A few times a quarter", s: 2 },
+              { t: "Regularly, and retailers tell us first", s: 1 },
+              { t: "We find out when orders are already lost", s: 0 }
+            ]
+          },
+          {
+            area: "Territory spread",
+            q: "The gap between your best and weakest territories is:",
+            leak: "Territory spread: the gap between best and weakest territories is wide and unexplained, which usually means it is design, not people.",
+            answers: [
+              { t: "Narrow, and we understand it", s: 3 },
+              { t: "Noticeable, and partly explained", s: 2 },
+              { t: "Wide, and we are not sure why", s: 1 },
+              { t: "We do not compare territories side by side", s: 0 }
+            ]
+          },
+          {
+            area: "Distributor retention",
+            q: "In the last two years, distributors leaving or quietly going inactive has been:",
+            leak: "Distributor retention: churn arrives as a surprise, when it almost always sends signals first.",
+            answers: [
+              { t: "Rare, and we saw it coming", s: 3 },
+              { t: "A few, mostly expected", s: 2 },
+              { t: "Several, and some were surprises", s: 1 },
+              { t: "We do not track it", s: 0 }
+            ]
+          },
+          {
+            area: "Review discipline",
+            q: "How often do you review channel performance against a fixed scorecard?",
+            leak: "Review discipline: without a fixed scorecard and cadence, problems surface only when they are already expensive.",
+            answers: [
+              { t: "Monthly, the same metrics every time", s: 3 },
+              { t: "Quarterly", s: 2 },
+              { t: "When a problem forces the conversation", s: 1 },
+              { t: "We mostly run on reports from the field", s: 0 }
+            ]
+          }
+        ];
+
+        var BANDS = [
+          {
+            min: 19,
+            title: "Strong channel",
+            text: "Your channel is well run. Scores in this range usually mean the basics are designed, not improvised. The remaining gains hide in the few areas that did not score top marks, and finding them takes your real numbers, not a questionnaire."
+          },
+          {
+            min: 12,
+            title: "Solid, with leaks",
+            text: "The foundations are there, and money is leaking in specific places. That is the most common pattern I see: nothing is broken outright, but two or three design choices are quietly costing margin every month."
+          },
+          {
+            min: 6,
+            title: "Leaking",
+            text: "Several core disciplines are running on habit rather than design. Channels in this range usually share the same short list of fixes, and most of them are structural, not effort. Your people are probably working hard inside a design that underpays them."
+          },
+          {
+            min: 0,
+            title: "Running blind",
+            text: "The channel is running without its basic instruments. That is not a people problem, it is a visibility problem, and it is fixable. The first step is seeing your own numbers clearly, distributor by distributor."
+          }
+        ];
+
+        var params = new URLSearchParams(window.location.search);
+        var ref = params.get("ref") || "";
+
+        var idx = 0;
+        var picks = new Array(QUESTIONS.length).fill(null);
+
+        var quizCard = document.getElementById("quiz-card");
+        var resultCard = document.getElementById("result-card");
+        var progressLabel = document.getElementById("progress-label");
+        var progressPct = document.getElementById("progress-pct");
+        var progressFill = document.getElementById("progress-fill");
+        var qArea = document.getElementById("q-area");
+        var qText = document.getElementById("q-text");
+        var answersEl = document.getElementById("answers");
+        var backBtn = document.getElementById("back-btn");
+
+        function render() {
+          var item = QUESTIONS[idx];
+          progressLabel.textContent = "Question " + (idx + 1) + " of " + QUESTIONS.length;
+          var pct = Math.round((idx / QUESTIONS.length) * 100);
+          progressPct.textContent = pct + "%";
+          progressFill.style.width = pct + "%";
+          qArea.textContent = item.area;
+          qText.textContent = item.q;
+          answersEl.innerHTML = "";
+          item.answers.forEach(function (ans, ai) {
+            var b = document.createElement("button");
+            b.type = "button";
+            b.className = "answer-btn" + (picks[idx] === ai ? " selected" : "");
+            b.textContent = ans.t;
+            b.addEventListener("click", function () {
+              picks[idx] = ai;
+              var btns = answersEl.querySelectorAll(".answer-btn");
+              btns.forEach(function (x) { x.classList.remove("selected"); });
+              b.classList.add("selected");
+              setTimeout(function () {
+                if (idx < QUESTIONS.length - 1) {
+                  idx++;
+                  render();
+                } else {
+                  showResults();
+                }
+              }, 200);
+            });
+            answersEl.appendChild(b);
+          });
+          backBtn.style.visibility = idx > 0 ? "visible" : "hidden";
+        }
+
+        backBtn.addEventListener("click", function () {
+          if (idx > 0) { idx--; render(); }
+        });
+
+        function showResults() {
+          var total = 0;
+          var lines = [];
+          QUESTIONS.forEach(function (item, i) {
+            var s = item.answers[picks[i]].s;
+            total += s;
+            lines.push(item.area + ": " + s + " of 3 (" + item.answers[picks[i]].t + ")");
+          });
+          var band = BANDS.find(function (b) { return total >= b.min; });
+
+          document.getElementById("score-num").textContent = total;
+          document.getElementById("band-title").textContent = band.title;
+          document.getElementById("band-text").textContent = band.text;
+
+          var leakList = document.getElementById("leak-list");
+          leakList.innerHTML = "";
+          var leaks = QUESTIONS.filter(function (item, i) { return item.answers[picks[i]].s <= 1; });
+          if (leaks.length === 0) {
+            var li = document.createElement("li");
+            li.textContent = "No critical leaks showed up in your answers. Your lowest areas are refinements, not repairs.";
+            leakList.appendChild(li);
+          } else {
+            leaks.forEach(function (item) {
+              var li = document.createElement("li");
+              li.textContent = item.leak;
+              leakList.appendChild(li);
+            });
+          }
+
+          var subject = "My Channel Health Check result: " + total + " of 24 (" + band.title + ")";
+          var bodyLines = [
+            "Hi Arun,",
+            "",
+            "I ran the Channel Health Check on getpath2.com.",
+            "Score: " + total + " of 24 (" + band.title + ")",
+            ""
+          ].concat(lines);
+          if (ref) { bodyLines.push("", "Reference: " + ref); }
+          var body = bodyLines.join("\n");
+          document.getElementById("send-btn").href =
+            "mailto:arun@getpath2.com?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+          document.getElementById("book-btn").href =
+            "mailto:arun@getpath2.com?subject=" + encodeURIComponent("Channel Diagnostic conversation") +
+            "&body=" + encodeURIComponent("Hi Arun,\n\nI ran the Channel Health Check and scored " + total + " of 24 (" + band.title + "). I would like to talk about the diagnostic.\n");
+
+          quizCard.classList.add("hidden");
+          resultCard.classList.remove("hidden");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+        document.getElementById("restart-link").addEventListener("click", function (e) {
+          e.preventDefault();
+          idx = 0;
+          picks = new Array(QUESTIONS.length).fill(null);
+          resultCard.classList.add("hidden");
+          quizCard.classList.remove("hidden");
+          render();
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        render();
+      })();
+    </script>
+  </body>
+</html>
