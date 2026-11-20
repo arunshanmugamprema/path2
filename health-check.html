@@ -217,12 +217,14 @@
           <div class="leaks" id="leaks-wrap">
             <h3>Where your channel is leaking</h3>
             <ul class="leak-list" id="leak-list"></ul>
+            <p class="privacy" id="leaks-more"></p>
           </div>
 
           <p class="bridge">The Channel Diagnostic is this check done with your real numbers: 2 to 3 weeks, a written findings brief, and a straight answer on what to fix first. You can act on the brief with or without me.</p>
 
           <div class="cta-row">
             <a class="btn btn-primary" id="book-btn" href="mailto:arun@getpath2.com?subject=Channel%20Diagnostic%20conversation">Book a 20 minute conversation</a>
+            <a class="btn btn-ghost hidden" id="sample-btn" href="sample-report.html">Read the sample findings brief</a>
             <a class="btn btn-ghost" id="send-btn" href="#">Send my answers to Arun</a>
           </div>
           <p class="restart"><a href="#" id="restart-link">Start again</a></p>
@@ -427,17 +429,25 @@
 
           var leakList = document.getElementById("leak-list");
           leakList.innerHTML = "";
-          var leaks = QUESTIONS.filter(function (item, i) { return item.answers[picks[i]].s <= 1; });
+          var leaks = QUESTIONS
+            .map(function (item, i) { return { item: item, s: item.answers[picks[i]].s }; })
+            .filter(function (x) { return x.s <= 1; })
+            .sort(function (a, b) { return a.s - b.s; });
+          var leaksMore = document.getElementById("leaks-more");
           if (leaks.length === 0) {
-            var li = document.createElement("li");
-            li.textContent = "No critical leaks showed up in your answers. Your lowest areas are refinements, not repairs.";
-            leakList.appendChild(li);
+            var li0 = document.createElement("li");
+            li0.textContent = "No critical leaks showed up in your answers. Your lowest areas are refinements, not repairs.";
+            leakList.appendChild(li0);
+            leaksMore.textContent = "";
           } else {
-            leaks.forEach(function (item) {
+            leaks.slice(0, 3).forEach(function (x) {
               var li = document.createElement("li");
-              li.textContent = item.leak;
+              li.textContent = x.item.leak;
               leakList.appendChild(li);
             });
+            leaksMore.textContent = leaks.length > 3
+              ? (leaks.length - 3) + " more area" + (leaks.length - 3 === 1 ? "" : "s") + " also scored low. The diagnostic works through all of them."
+              : "";
           }
 
           var subject = "My Channel Health Check result: " + total + " of 24 (" + band.title + ")";
@@ -456,6 +466,16 @@
           document.getElementById("book-btn").href =
             "mailto:arun@getpath2.com?subject=" + encodeURIComponent("Channel Diagnostic conversation") +
             "&body=" + encodeURIComponent("Hi Arun,\n\nI ran the Channel Health Check and scored " + total + " of 24 (" + band.title + "). I would like to talk about the diagnostic.\n");
+
+          var sampleBtn = document.getElementById("sample-btn");
+          sampleBtn.classList.remove("hidden");
+          if (total >= 19) {
+            sampleBtn.className = "btn btn-primary";
+            document.getElementById("book-btn").className = "btn btn-ghost";
+          } else {
+            sampleBtn.className = "btn btn-ghost";
+            document.getElementById("book-btn").className = "btn btn-primary";
+          }
 
           quizCard.classList.add("hidden");
           resultCard.classList.remove("hidden");
