@@ -252,9 +252,9 @@
             q: "When your team commits to a monthly sales number, how close does the month usually land?",
             leak: "Forecast accuracy: the monthly number is a guess, so production, stock, and cash all plan against fiction.",
             answers: [
-              { t: "Within about 5% most months", s: 3 },
-              { t: "Within about 10%", s: 2 },
-              { t: "Off by 15% or more, regularly", s: 1 },
+              { t: "Within about 10% most months", s: 3 },
+              { t: "Off by 10 to 20%", s: 2 },
+              { t: "Off by more than 20%, regularly", s: 1 },
               { t: "We do not really forecast by distributor or territory", s: 0 }
             ]
           },
@@ -274,9 +274,9 @@
             q: "Your distributor incentive program pays out mainly for what?",
             leak: "Incentive design: the program pays for volume alone, so it buys the wrong behavior.",
             answers: [
-              { t: "Growth and product mix targets we set together", s: 3 },
-              { t: "Volume, with some conditions attached", s: 2 },
-              { t: "Volume alone", s: 1 },
+              { t: "Sell-through to retailers, plus growth or mix targets", s: 3 },
+              { t: "What distributors buy from us, with some conditions attached", s: 2 },
+              { t: "What distributors buy from us, volume alone", s: 1 },
               { t: "We do not run a structured incentive program", s: 0 }
             ]
           },
@@ -287,13 +287,13 @@
             answers: [
               { t: "More than half of them", s: 3 },
               { t: "A third to a half", s: 2 },
-              { t: "Mostly the same few top distributors", s: 1 },
+              { t: "Under a third", s: 1 },
               { t: "We do not track participation", s: 0 }
             ]
           },
           {
             area: "Stock availability",
-            q: "How often do fast-moving products go out of stock at distributor level?",
+            q: "How often do fast-moving products go out of stock at distributor level, and how do you find out?",
             leak: "Stock availability: fast movers run out, and the lost sales never appear on any report.",
             answers: [
               { t: "Rarely, and we see it coming", s: 3 },
@@ -304,7 +304,7 @@
           },
           {
             area: "Territory spread",
-            q: "The gap between your best and weakest territories is:",
+            q: "How wide is the gap between your best and weakest territories, and do you know why it is there?",
             leak: "Territory spread: the gap between best and weakest territories is wide and unexplained, which usually means it is design, not people.",
             answers: [
               { t: "Narrow, and we understand it", s: 3 },
@@ -315,7 +315,7 @@
           },
           {
             area: "Distributor retention",
-            q: "In the last two years, distributors leaving or quietly going inactive has been:",
+            q: "In the last two years, how much distributor churn have you had, and did you see it coming?",
             leak: "Distributor retention: churn arrives as a surprise, when it almost always sends signals first.",
             answers: [
               { t: "Rare, and we saw it coming", s: 3 },
@@ -340,8 +340,8 @@
         var BANDS = [
           {
             min: 19,
-            title: "Strong channel",
-            text: "Your channel is well run. Scores in this range usually mean the basics are designed, not improvised. The remaining gains hide in the few areas that did not score top marks, and finding them takes your real numbers, not a questionnaire."
+            title: "Strong on paper",
+            text: "Your answers describe a well run channel, where the basics are designed, not improvised. Self-reported answers run optimistic, though, and the remaining gains hide in the areas that did not score top marks. The Channel Diagnostic checks whether your data agrees, and either confirms the channel is as strong as it looks or finds what the answers missed."
           },
           {
             min: 12,
@@ -429,10 +429,11 @@
 
           var leakList = document.getElementById("leak-list");
           leakList.innerHTML = "";
+          var LEAK_PRIORITY = [2, 0, 1, 3, 4, 5, 6, 7];
           var leaks = QUESTIONS
-            .map(function (item, i) { return { item: item, s: item.answers[picks[i]].s }; })
+            .map(function (item, i) { return { item: item, s: item.answers[picks[i]].s, rank: LEAK_PRIORITY[i] }; })
             .filter(function (x) { return x.s <= 1; })
-            .sort(function (a, b) { return a.s - b.s; });
+            .sort(function (a, b) { return (a.s - b.s) || (a.rank - b.rank); });
           var leaksMore = document.getElementById("leaks-more");
           if (leaks.length === 0) {
             var li0 = document.createElement("li");
