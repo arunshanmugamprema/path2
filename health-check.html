@@ -197,7 +197,7 @@
         <h1>The Channel Health Check</h1>
         <p class="lede">Eight questions. Two minutes. A straight score for the distributor channel you already have, and a clear read on where it is leaking.</p>
         <p class="proof">Built from 10+ years running a $100M distributor channel: 200+ distributors, 40,000+ retail accounts, 15 regions.</p>
-        <p class="privacy">Your answers stay in your browser. Nothing is collected or sent anywhere unless you choose to send your result at the end.</p>
+        <p class="privacy">As you answer, your selections are recorded together with the link you arrived from, so I can see where channels tend to leak. Your name and email are never collected unless you choose to send your result at the end.</p>
 
         <section class="card" id="quiz-card" aria-live="polite">
           <div class="progress-row">
@@ -377,6 +377,39 @@
         var params = new URLSearchParams(window.location.search);
         var ref = params.get("ref") || "";
 
+        var HC_ENDPOINT = "https://script.google.com/macros/s/AKfycbxlUEuKfbXs1FeukJ38nO6aK-SvpDAZ5kSvEcUskIEUWdm5LRXk-Z41ttbj1FAdkRvYuw/exec";
+        var hcSession = "hc-" + Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 8);
+        var hcDone = false;
+        function hcPayload(stage, total, bandTitle, lines) {
+          var answered = [];
+          QUESTIONS.forEach(function (item, i) {
+            if (typeof picks[i] === "number") {
+              answered.push(item.area + ": " + item.answers[picks[i]].s + " of 3 (" + item.answers[picks[i]].t + ")");
+            }
+          });
+          return JSON.stringify({
+            session: hcSession, stage: stage, ref: ref, ua: navigator.userAgent,
+            answered: answered.length, picks: picks.slice(),
+            detail: lines ? lines.join("\n") : answered.join("\n"),
+            score: (typeof total === "number") ? total : null,
+            band: bandTitle || null
+          });
+        }
+        function hcTrack(stage, total, bandTitle, lines) {
+          if (!HC_ENDPOINT || HC_ENDPOINT.indexOf("__HC") === 0) { return; }
+          var body = hcPayload(stage, total, bandTitle, lines);
+          try {
+            if (navigator.sendBeacon) {
+              navigator.sendBeacon(HC_ENDPOINT, new Blob([body], { type: "text/plain" }));
+            } else if (window.fetch) {
+              fetch(HC_ENDPOINT, { method: "POST", body: body, mode: "no-cors", keepalive: true });
+            }
+          } catch (e) { /* tracking must never block the quiz */ }
+        }
+        window.addEventListener("pagehide", function () {
+          if (!hcDone && picks.some(function (p) { return typeof p === "number"; })) { hcTrack("partial"); }
+        });
+
         var idx = 0;
         var picks = new Array(QUESTIONS.length).fill(null);
 
@@ -406,6 +439,7 @@
             b.textContent = ans.t;
             b.addEventListener("click", function () {
               picks[idx] = ai;
+              hcTrack("answer");
               var btns = answersEl.querySelectorAll(".answer-btn");
               btns.forEach(function (x) { x.classList.remove("selected"); });
               b.classList.add("selected");
@@ -436,6 +470,11 @@
             lines.push(item.area + ": " + s + " of 3 (" + item.answers[picks[i]].t + ")");
           });
           var band = BANDS.find(function (b) { return total >= b.min; });
+          hcDone = true;
+          hcTrack("complete", total, band.title, lines);
+          if (window.goatcounter && window.goatcounter.count) {
+            window.goatcounter.count({ path: "healthcheck-complete-" + total, event: true });
+          }
 
           document.getElementById("score-num").textContent = total;
           document.getElementById("band-title").textContent = band.title;
