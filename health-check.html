@@ -144,7 +144,8 @@
       .brief-form h3 { margin: 0 0 8px; color: var(--navy); font-size: 1.12rem; }
       @media (prefers-color-scheme: dark) { .brief-form h3 { color: var(--ink); } }
       .brief-line { color: var(--ink-soft); margin: 0 0 14px; }
-      .brief-form iframe { width: 100%; border: 0; background: transparent; }
+      .brief-form iframe { width: 100%; border: 0; background: transparent; display: block; }
+      .brief-frame { background: #ffffff; border: 1px solid var(--line); border-radius: 12px; padding: 8px 16px; }
       .band { font-size: 1.45rem; font-weight: 700; margin: 10px 0 12px; color: var(--navy); }
       @media (prefers-color-scheme: dark) { .band { color: var(--ink); } }
       .band-text { color: var(--ink-soft); max-width: 600px; }
@@ -230,7 +231,9 @@
           <div class="brief-form">
             <h3>Get your full results as a short written brief</h3>
             <p class="brief-line">Send your answers with your name and work email, and I will reply with a brief on what your scores point to and what to fix first. Written by me, not an automated sequence.</p>
+            <div class="brief-frame">
             <iframe id="tally-frame" loading="lazy" width="100%" height="430" frameborder="0" marginheight="0" marginwidth="0" title="Send your Health Check answers to Path 2"></iframe>
+            </div>
             <p class="privacy">Your answers and contact details go only to Path 2 and are used to prepare your brief. No mailing list, no sharing.</p>
           </div>
 
@@ -479,7 +482,7 @@
             "mailto:arun@getpath2.com?subject=" + encodeURIComponent("Channel Diagnostic conversation") +
             "&body=" + encodeURIComponent("Hi Arun,\n\nI ran the Channel Health Check and scored " + total + " of 24 (" + band.title + "). I would like to talk about the diagnostic.\n");
 
-          var tallyUrl = "https://tally.so/embed/rDolAv?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" +
+          var tallyUrl = "https://tally.so/embed/rDolAv?alignLeft=1&hideTitle=1&dynamicHeight=1" +
             "&score=" + encodeURIComponent(total) +
             "&band=" + encodeURIComponent(band.title) +
             "&answers=" + encodeURIComponent(lines.join("\n")) +
